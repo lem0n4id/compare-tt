@@ -1,10 +1,12 @@
 # Compare TT
 
-> Compare Timetables with ease! 🔥
+> Compare VIT Timetables with ease! 🔥
 
 ![gif](assets/timetable.gif)
 
 With this static site, you can compare timetable with your classmates without needing to read through it. 
+
+> Note- This has only been tested with VIT Chennai timetable. It might not work for other campuses. Please raise an issue if you face any problems
 
 ## How to use
 
@@ -16,10 +18,14 @@ With this static site, you can compare timetable with your classmates without ne
 
 HTML, CSS(barely) and JS!
 
+## How it works
+
+I have used RegEx to identify the course code and venue to determine if you have same classes or not
+
 ## Contributions 😍
 
 You are more than welcome to raise an issue if you want to add a feature or report any bug. 
 
 **Make sure to raise an issue before making a PR**
 
-Happy coding!
+Happy coding! 😛
