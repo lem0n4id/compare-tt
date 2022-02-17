@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Timetables!</title>
+    <style>
+        .warp {
+            display: flex;
+            align-items: flex-start;
+        }
+        #inputs {
+            display: flex;
+            justify-content: center;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+        }
+        /* input {
+            margin: 1%;
+            width: 8%;
+            max-width: 80px; 
+        } */
+        .inputbox {
+            margin: 2%;
+            width: 50%;
+            max-width: 450px; 
+            height: 222px;
+        }
+        @media (max-width: 1000px) {
+            .inputbox {
+                width: 45%; 
+                height: 15%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="inputs">
+        <textarea type="text" class="inputbox" placeholder="enter your time table" id="tt1"></textarea>
+        <textarea type="text" class="inputbox" placeholder="enter your friend's time table" id="tt2"></textarea>
+    </div>
+    <div class="buttons">
+        <input type="button" value="submit" onclick="main()" />
+        <input type="button" value="reset" onclick="reset()" />
+    </div>
+    <div>
+        <h2 id="messageHeader"></h1>
+            <h3 id="messageBody"></h3>
+            <div>
+                <div id="commonClasses">
+                </div>
+            </div>
+    </div>
+
+    <script>
+
+        function getInputs() {
+            // returns the inputs given by the user
+            let tt1 = document.querySelector("#tt1");
+            let tt2 = document.querySelector("#tt2");
+            let table1 = tt1.value;
+            let table2 = tt2.value;
+            if (!table1 | !table2) {
+                alert("invalid inputs")
+                return
+            }
+            return [table1, table2];
+        }
+        function getTimetables(table1, table2) {
+            // returns 2 arrays of coursecode-venue from the given input
+            regexp = /([A-Z]{1,3}\d{1,2})-([A-Z])([A-Z]{3})(\d{3,4})([A-Z])-([A-Z]{2,3})-([A-Z]{2}\d)-(\d{3}[A-Z]|\d{3})-([A-Z]{3})/g;
+
+            let result1 = table1.match(regexp);
+            let result2 = table2.match(regexp);
+
+            var courseCodes1 = result1.map(function (e, i) {
+                var slotDetails = result1[i].split('-')
+                return slotDetails[1] + '-' + slotDetails[3] + '-' + slotDetails[4];
+            })
+            var courseCodes2 = result2.map(function (e, i) {
+                var slotDetails = result2[i].split('-')
+                return slotDetails[1] + '-' + slotDetails[3] + '-' + slotDetails[4];
+            })
+            a = [... new Set(courseCodes1)]
+            b = [... new Set(courseCodes2)]
+            return [a, b]
+        }
+        function printCommonClasses(classes) {
+            // uses DOM to show the output
+
+            const numberOfClasses = classes.length
+
+            // show how many classes match
+            var messageHeader = document.getElementById('messageHeader')
+            var messageHeaderText = document.createTextNode(`${numberOfClasses} classes match`)
+            messageHeader.appendChild(messageHeaderText)
+
+            // longer message displayed
+            var messageBody = document.getElementById('messageBody')
+            var messageBodyText = document.createTextNode(`We found you have ${numberOfClasses} classes common with the other person`)
+            messageBody.appendChild(messageBodyText)
+
+            // if no common class
+            if (numberOfClasses==0) return
+
+            var commonClassesDiv = document.getElementById('commonClasses')
+            
+            // heading for the list
+            var header = document.createElement("h4").appendChild(document.createTextNode('Common classess'))
+            commonClassesDiv.appendChild(header)
+
+            // create ordered list element
+            var commonClassesList = document.createElement("ol")
+            commonClassesList.setAttribute("id", "commonClassesList");
+            document.body.appendChild(commonClassesList);
+
+            // set list items
+            classes.forEach(element => {
+                
+                var commonClass = document.createElement("li")
+                var t = document.createTextNode(element)
+                commonClass.appendChild(t)
+                document.getElementById("commonClassesList").appendChild(commonClass)
+            });
+        }
+        function getCommonClasses(a, b) {
+            // returns an array of common classes
+            let commonClasses = []
+            a.forEach(element => {
+                if (b.find(x => x == element)) {
+                    classcode = element.split("-")[0]
+                    commonClasses.push(classcode)
+                }
+            });
+            return commonClasses
+        }
+        function reset() {
+            document.getElementById('messageHeader').innerHTML = ''
+            document.getElementById('messageBody').innerHTML = ''
+            document.getElementById('commonClasses').innerHTML = '' 
+            try {
+                // Something that throws exception
+                document.getElementById('commonClassesList').innerHTML = ''
+            }
+            catch (e) {}
+            
+        }
+        function main() {
+            reset()
+            inputs = getInputs()
+            try {
+                // if invalid input
+                timetables = getTimetables(inputs[0], inputs[1])
+            } catch (e) {
+                alert('Enter proper timetable!!')
+                return
+            }
+            
+            console.log(timetables)
+            commonClasses = getCommonClasses(timetables[0],timetables[1])
+            printCommonClasses(commonClasses)
+        }
+    </script>
+</body>
+
+</html>
