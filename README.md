@@ -2,7 +2,7 @@
 
 > Compare Timetables with ease!
 
-![](assets\timetable.gif)
+![gif](assets/timetable.gif)
 
 With this static site, you can compare timetable with your classmates without needing to read through it. 
 
