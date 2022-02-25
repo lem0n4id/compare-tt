@@ -34,7 +34,7 @@ You are more than welcome to raise an issue if you want to add a feature or repo
 ### TODO
 
 - [ ] add styling (pure css??)
-- [ ] add description how to use the web app
+- [ ] add description in the site how to use the web app 
 - [ ] add feature to store common classes with your friends (Local Storage API)
 
 **Make sure to raise an issue before making a PR**
