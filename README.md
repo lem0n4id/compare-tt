@@ -35,7 +35,7 @@ You are more than welcome to raise an issue if you want to add a feature or repo
 
 - [x] add styling (pure css??)
 - [x] add description in the site how to use the web app 
-- [ ] add feature to store common classes with your friends (Local Storage API)
+- [ ] add feature to store common classes with your friends (Local Storage API) - this would be like Lenin (has 3 common classes), etc.
 
 **Make sure to raise an issue before making a PR**
 
