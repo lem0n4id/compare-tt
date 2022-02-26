@@ -41,6 +41,7 @@
 </head>
 
 <body>
+    <main>
         <header>
             <h1>Compare Timetables</h1>
             <blockquote>Now compare timetables with your classmates with ease!</blockquote>
@@ -57,22 +58,24 @@
             </p>
 
         </header>
-    <div id="inputs">
-        <textarea type="text" class="inputbox" placeholder="enter your time table" id="tt1"></textarea>
-        <textarea type="text" class="inputbox" placeholder="enter your friend's time table" id="tt2"></textarea>
-    </div>
-    <div class="buttons">
-        <input type="button" value="submit" onclick="main()" />
-        <input type="button" value="reset" onclick="reset()" />
-    </div>
-    <div>
-        <h2 id="messageHeader"></h1>
-            <h3 id="messageBody"></h3>
-            <div>
-                <div id="commonClasses">
+        <div id="inputs">
+            <textarea type="text" class="inputbox" placeholder="enter your time table" id="tt1"></textarea>
+            <textarea type="text" class="inputbox" placeholder="enter your friend's time table" id="tt2"></textarea>
+        </div>
+        <div class="buttons">
+            <input type="button" value="submit" onclick="main()" />
+            <input type="button" value="reset" onclick="reset()" />
+        </div>
+        <div id="outputs">
+            <h2 id="messageHeader">
+                </h1>
+                <h3 id="messageBody"></h3>
+                <div>
+                    <div id="commonClasses">
+                    </div>
                 </div>
-            </div>
-    </div>
+        </div>
+    </main>
 
     <script>
 
@@ -114,7 +117,7 @@
 
             // show how many classes match
             var messageHeader = document.getElementById('messageHeader')
-            var messageHeaderText = document.createTextNode(`${numberOfClasses} classes match`)
+            var messageHeaderText = document.createTextNode(`${numberOfClasses} classes matched`)
             messageHeader.appendChild(messageHeaderText)
 
             // longer message displayed
@@ -123,10 +126,10 @@
             messageBody.appendChild(messageBodyText)
 
             // if no common class
-            if (numberOfClasses==0) return
+            if (numberOfClasses == 0) return
 
             var commonClassesDiv = document.getElementById('commonClasses')
-            
+
             // heading for the list
             var header = document.createElement("h4").appendChild(document.createTextNode('Common classess'))
             commonClassesDiv.appendChild(header)
@@ -134,11 +137,11 @@
             // create ordered list element
             var commonClassesList = document.createElement("ol")
             commonClassesList.setAttribute("id", "commonClassesList");
-            document.body.appendChild(commonClassesList);
+            commonClassesDiv.appendChild(commonClassesList);
 
             // set list items
             classes.forEach(element => {
-                
+
                 var commonClass = document.createElement("li")
                 var t = document.createTextNode(element)
                 commonClass.appendChild(t)
@@ -159,13 +162,13 @@
         function reset() {
             document.getElementById('messageHeader').innerHTML = ''
             document.getElementById('messageBody').innerHTML = ''
-            document.getElementById('commonClasses').innerHTML = '' 
+            document.getElementById('commonClasses').innerHTML = ''
             try {
                 // Something that throws exception
                 document.getElementById('commonClassesList').innerHTML = ''
             }
-            catch (e) {}
-            
+            catch (e) { }
+
         }
         function main() {
             reset()
@@ -177,9 +180,9 @@
                 alert('Enter proper timetable!!')
                 return
             }
-            
+
             console.log(timetables)
-            commonClasses = getCommonClasses(timetables[0],timetables[1])
+            commonClasses = getCommonClasses(timetables[0], timetables[1])
             printCommonClasses(commonClasses)
         }
     </script>
