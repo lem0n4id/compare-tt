@@ -1,5 +1,5 @@
 
-> Disclamer: 🚧 This is a work in progress. Check out [TODOs](#todo)
+> Disclamer: 🚧 This is a work in progress. Check out [the project board of this repo](https://github.com/lem0n4id/compare-tt/projects/1)
 
 # Compare TT
 
@@ -30,12 +30,6 @@ I have used RegEx to identify the course code and venue to determine if you have
 ## Contributions 😍
 
 You are more than welcome to raise an issue if you want to add a feature or report any bug. 
-
-### TODO
-
-- [x] add styling (pure css??)
-- [x] add description in the site how to use the web app 
-- [ ] add feature to store common classes with your friends (Local Storage API) - this would be like Lenin (has 3 common classes), etc.
 
 **Make sure to raise an issue before making a PR**
 
