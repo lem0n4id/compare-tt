@@ -1,4 +1,13 @@
-# 0.1.0 (2022-02-26)
+# [0.2.0](https://github.com/lem0n4id/compare-tt/compare/v0.1.0...v0.2.0) (2022-02-26)
+
+
+### Features
+
+* add footer to index.html ([de38323](https://github.com/lem0n4id/compare-tt/commit/de383239bd124c9b02c6e93d51330344d1239b3f))
+
+
+
+# [0.1.0](https://github.com/lem0n4id/compare-tt/compare/6d614e03843b8f9a9e0d5425f43289b9e22f7213...v0.1.0) (2022-02-26)
 
 
 ### Bug Fixes
