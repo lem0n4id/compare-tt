@@ -3,6 +3,8 @@
 
 # Compare TT
 
+[![pages-build-deployment](https://github.com/lem0n4id/compare-tt/actions/workflows/pages/pages-build-deployment/badge.svg?branch=master)](https://github.com/lem0n4id/compare-tt/actions/workflows/pages/pages-build-deployment)
+
 > Compare VIT Timetables with ease! 🔥
 
 [Link to the live site](https://lenincodes.co/compare-tt)
