@@ -21,13 +21,15 @@ With this static site, you can compare timetable with your classmates without ne
 1. Have someone send over their time table and paste in the second textbox
 1. Hit submit! ⚡
 
+## How it works
+
+I have used RegEx to identify the course code and venue to determine if you have same classes or not.
+
+It matches the course code and venue of your timetable slots to determine common classes.
+
 ## Tech stack used
 
 HTML, CSS(barely) and JS!
-
-## How it works
-
-I have used RegEx to identify the course code and venue to determine if you have same classes or not
 
 ## Contributions 😍
 
