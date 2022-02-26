@@ -1,0 +1,48 @@
+.warp {
+    display: flex;
+    align-items: flex-start;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+input {
+    margin: 0em 0.6em;
+}
+
+#inputs {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    
+}
+
+#outputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputbox {
+    margin: 2%;
+    width: 50%;
+    max-width: 450px;
+    height: 222px;
+}
+
+@media (max-width: 1000px) {
+    .inputbox {
+        width: 45%;
+        height: 15%;
+    }
+}
