@@ -7,7 +7,7 @@
 
 > Compare VIT Timetables with ease! 🔥
 
-[Link to the live site](https://lenincodes.co/compare-tt)
+[Link to the live site](https://lem0n4id.github.io/compare-tt/)
 
 ![gif](assets/timetable.gif)
 
